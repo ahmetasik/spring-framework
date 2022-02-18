@@ -12,9 +12,21 @@ public class MyApp {
 
         ft.createAccount();
 
-        String str = container.getBean(String.class);
+        PartTimeMentor pt = container.getBean(PartTimeMentor.class);
+        pt.createAccount();
+
+
+
+
+        PartTimeMentor str = (PartTimeMentor) container.getBean("partTimeMentor");
+        str.createAccount();
 
         System.out.println(str);
+
+        PartTimeMentor str1 = (PartTimeMentor) container.getBean("partTimeMentor");
+        str.createAccount();
+
+        System.out.println(str1);
 
     }
 }
