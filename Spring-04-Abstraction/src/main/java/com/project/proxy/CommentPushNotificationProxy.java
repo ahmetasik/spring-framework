@@ -2,13 +2,14 @@ package com.project.proxy;
 
 import com.project.model.Comment;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("EMAIL")
-public class EmailCommentNotificationProxy implements CommentNotificationProxy {
+@Qualifier("PUSH")
+public class CommentPushNotificationProxy implements CommentNotificationProxy{
     @Override
     public void sendComment(Comment comment) {
-        System.out.println("Sending notification for comment : " + comment.getText());
+        System.out.println("Sending Push Notification for: "+comment.getText());
     }
 }
