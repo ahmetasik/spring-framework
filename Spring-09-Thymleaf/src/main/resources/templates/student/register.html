@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Displaying value-->
+
+<h2>Welcome New Student</h2>
+<h2 th:text="${students.get(0).getFirstName()}"></h2>
+<h2 th:text="${students.get(0).getLastName()}"></h2>
+<h2 th:text="${students.get(0).getState()}"></h2>
+
+<!--Concat-->
+
+<h2 th:text="${'Welcome to ' + students.get(0).getState()}"></h2>
+
+<!--Links-->
+
+<a th:href="@{https://cydeo.com}">Go to Cydeo</a>
+<br>
+<a th:href="@{/student/welcome}">Link1</a>
+<br>
+<!--Adding Parameters -->
+
+<a th:href="@{/student/welcome(id=3)}">Link2</a>
+<br>
+<a th:href="@{/student/welcome(id=${students.get(0).getFirstName()})}">Name</a>
+
+<!--Iteration-->
+<table>
+    <thead>
+    <tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Age</td>
+    <td>State</td>
+    <td th:each="student : ${students}" th:text="${student.getFirstName()}"></td>
+    <br>
+    <td th:each="student : ${students}" th:text="${student.getLastName()}"></td>
+    <br>
+    <td th:each="student : ${students}" th:text="${student.getAge()}"></td>
+    <br>
+    <td th:each="student : ${students}" th:text="${student.getState()}"></td>
+</tr>
+    </thead>
+</table>
+
+</body>
+</html>
